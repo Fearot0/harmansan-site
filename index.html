@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harmansan Hırdavat</title>
+  <meta name="description" content="Harmansan Hırdavat: Pompalar, testereler, bahçe ve ölçüm aletleri. Stoktan hızlı teslimat, doğru fiyat.">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/favicon.png">
+</head>
+<body>
+
+  <!-- ÜST BİLGİ ÇUBUĞU -->
+  <div class="topline">
+    <div class="container tl-inner">
+      <span>📞 <a href="tel:+905318859025">+90 531 885 90 25</a></span>
+      <span>✉️ <a href="mailto:mesut@harmansan.com">mesut@harmansan.com</a></span>
+    </div>
+  </div>
+
+  <!-- TURUNCU MENÜ -->
+  <header class="headerbar">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-badge">H</span>
+        <span class="logo-text">Harmansan <b>Hırdavat</b></span>
+      </a>
+      <nav class="mainnav">
+        <a class="active" href="index.html">Ana Sayfa</a>
+        <div class="dropdown">
+          <button class="dropbtn">Ürünler ▾</button>
+          <div class="dropdown-menu">
+            <a href="urunler.html?k=pompalar">Pompalar</a>
+            <a href="urunler.html?k=testereler">Testereler</a>
+            <a href="urunler.html?k=bahce">Bahçe Aletleri</a>
+            <a href="urunler.html?k=olcum">Ölçüm Aletleri</a>
+            <a href="urunler.html">Tüm Ürünler</a>
+          </div>
+        </div>
+        <a href="iletisim.html">İletişim</a>
+      </nav>
+      <div class="header-cta">
+        <a class="btn ghost" href="https://wa.me/905318859025" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- TAM GENİŞLİK HERO BANNER -->
+  <!-- images/hero-wadfow.jpg dosyasını ekle (en az 1600x600). Yoksa alt satırdaki stok link geçici olarak kalabilir. -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="images/hero-wadfow.jpg" alt="Hırdavat ve el aletleri arka plan" onerror="this.src='https://images.unsplash.com/photo-1581091870622-7c61fc05ba2a?q=80&w=1600&auto=format&fit=crop'">
+    </div>
+    <div class="container hero-inner">
+      <h1>Lityum platformu, el aletleri ve endüstriyel hırdavat</h1>
+      <p>Hortum makaraları, pompalar, testereler, bahçe ve ölçüm aletleri… stoktan hızlı teslimat, doğru fiyat.</p>
+      <div class="hero-actions">
+        <a class="btn" href="urunler.html">Ürünleri Gör</a>
+        <a class="btn ghost" href="tel:+905318859025">Hemen Ara</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- KATEGORİ ŞERİDİ -->
+  <section class="stripe">
+    <div class="container stripe-inner">
+      <a class="chip" href="urunler.html?k=pompalar">⛽ Pompalar</a>
+      <a class="chip" href="urunler.html?k=testereler">🪚 Testereler</a>
+      <a class="chip" href="urunler.html?k=bahce">🌿 Bahçe Aletleri</a>
+      <a class="chip" href="urunler.html?k=olcum">📏 Ölçüm Aletleri</a>
+      <a class="chip" href="urunler.html?k=makara">🧵 Makara & Hortum</a>
+      <a class="chip" href="urunler.html">Hepsi</a>
+    </div>
+  </section>
+
+  <!-- ÖNE ÇIKANLAR (VİTRİN) -->
+  <section class="section">
+    <div class="container">
+      <h2>Öne Çıkanlar</h2>
+      <p class="muted">Seçili ürünlerden bazıları</p>
+      <div class="grid" id="vitrin"></div>
+    </div>
+  </section>
+
+  <!-- ALT BİLGİ -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="y"></span> Harmansan Hırdavat · <a href="mailto:mesut@harmansan.com">mesut@harmansan.com</a> · <a href="tel:+905318859025">+90 531 885 90 25</a></p>
+    </div>
+  </footer>
+
+  <!-- Kayan WhatsApp -->
+  <a class="whatsapp-fab" href="https://wa.me/905318859025" target="_blank" rel="noopener">WhatsApp</a>
+
+  <!-- JS: yıl + vitrin doldurma -->
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    const vitrin = [
+      {n:"Su Hortum Makara Seti (20m)", img:"images/urun-01.jpg", link:"urunler.html?k=makara"},
+      {n:"Plastik Boru Kaynak Makinesi (800W)", img:"images/urun-03.jpg", link:"urunler.html?k=makara"},
+      {n:"Çift Pistonlu Ayak Pompası", img:"images/urun-18.jpg", link:"urunler.html?k=pompalar"},
+      {n:"Lazer Terazi Yeşil", img:"images/urun-24.jpg", link:"urunler.html?k=olcum"},
+      {n:"Köpük Tabancası", img:"images/urun-31.jpg", link:"urunler.html"},
+      {n:"Inox Metal Kesme Diski", img:"images/urun-40.jpg", link:"urunler.html"}
+    ];
+    const g = document.getElementById('vitrin');
+    vitrin.forEach(p=>{
+      const d = document.createElement('a');
+      d.className = 'card';
+      d.href = p.link;
+      d.innerHTML = `
+        <div class="card-media"><img loading="lazy" src="${p.img}" alt="${p.n}" onerror="this.src='images/placeholder.jpg'"></div>
+        <h3>${p.n}</h3>
+      `;
+      g.appendChild(d);
+    });
+  </script>
+</body>
+</html>
