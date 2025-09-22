@@ -1,52 +1,108 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Harmansan Hırdavat - İletişim</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>İletişim</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Ana Sayfa</a></li>
-        <li><a href="urunler.html">Ürünler</a></li>
-        <li><a class="active" href="iletisim.html">İletişim</a></li>
-      </ul>
-    </nav>
+  <!-- ÜST BİLGİ + MENÜ (index ile aynı görünüm) -->
+  <div class="topline">
+    <div class="container tl-inner">
+      <span>📞 <a href="tel:+905318859025">+90 531 885 90 25</a></span>
+      <span>✉️ <a href="mailto:mesut@harmansan.com">mesut@harmansan.com</a></span>
+    </div>
+  </div>
+  <header class="headerbar">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-badge">H</span>
+        <span class="logo-text">Harmansan <b>Hırdavat</b></span>
+      </a>
+      <nav class="mainnav">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="urunler.html">Ürünler</a>
+        <a class="active" href="iletisim.html">İletişim</a>
+      </nav>
+      <a class="btn ghost" href="https://wa.me/905318859025" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
   </header>
 
-  <main>
-    <section class="contact">
-      <h2>Bize Ulaşın</h2>
-      <p><strong>Telefon:</strong> 
-        <a href="https://wa.me/905318859025" target="_blank">
-          +90 531 885 90 25 (WhatsApp)
-        </a>
-      </p>
-      <p><strong>E-posta:</strong> 
-        <a href="mailto:mesut@harmansan.com">mesut@harmansan.com</a>
-      </p>
-      <p><strong>Adres:</strong> 
-        Mahmutbey Mah. 2433 Sk, İSTOÇ 15. Ada No: 110 Bağcılar - İstanbul - Türkiye
-      </p>
+  <!-- CONTACT HERO (lacivert degrade + desen) -->
+  <section class="contact-hero">
+    <div class="container">
+      <h1 class="reveal">İletişim</h1>
+      <p class="reveal delay-1">Sorularınız ve teklif talepleriniz için bizimle hemen iletişime geçin.</p>
+      <div class="reveal delay-2">
+        <a class="btn" href="https://wa.me/905318859025" target="_blank" rel="noopener">WhatsApp’tan Yaz</a>
+        <a class="btn btn-ghost-dark" href="tel:+905318859025">Hemen Ara</a>
+      </div>
+    </div>
+  </section>
 
-      <h3>Konum</h3>
-      <iframe 
-        src="https://www.google.com/maps?q=Mahmutbey+Mah+2433+Sk,+İSTOÇ+15.+Ada+No:+110+Bağcılar+-+İstanbul+-+Türkiye&output=embed" 
-        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy">
-      </iframe>
-    </section>
+  <!-- BİLGİ KARTLARI + HARİTA + FORM -->
+  <main class="section">
+    <div class="container contact-grid">
+      <!-- Sol: Bilgi Kartları -->
+      <div class="info-cards">
+        <div class="info-card reveal">
+          <h3>Telefon</h3>
+          <p><a href="tel:+905318859025">+90 531 885 90 25</a></p>
+        </div>
+        <div class="info-card reveal delay-1">
+          <h3>E-posta</h3>
+          <p><a href="mailto:mesut@harmansan.com">mesut@harmansan.com</a></p>
+        </div>
+        <div class="info-card reveal delay-2">
+          <h3>Adres</h3>
+          <p>Mahmutbey Mah. 2433 Sk, İSTOÇ 15. Ada No: 110<br>Bağcılar – İstanbul – Türkiye</p>
+        </div>
+
+        <div class="info-note">
+          <p>Hafta içi 09:00–18:00 arasında hizmet veriyoruz. Toplu alım ve bayi talepleri için lütfen e-posta ile konu başlığı belirtin.</p>
+        </div>
+      </div>
+
+      <!-- Orta: Harita -->
+      <div class="map-wrap reveal">
+        <iframe 
+          src="https://www.google.com/maps?q=Mahmutbey+Mah+2433+Sk,+İSTOÇ+15.+Ada+No:+110+Bağcılar+-+İstanbul+-+Türkiye&output=embed" 
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+
+      <!-- Sağ: Hızlı Form (opsiyonel) -->
+      <form class="contact-form reveal" onsubmit="event.preventDefault(); alert('Teşekkürler! Talebiniz alındı.');">
+        <h3>Teklif / Mesaj Gönder</h3>
+        <label>Ad Soyad</label>
+        <input type="text" required placeholder="Adınız ve soyadınız">
+        <label>Telefon</label>
+        <input type="tel" required placeholder="+90 ___ ___ __ __">
+        <label>E-posta</label>
+        <input type="email" required placeholder="ornek@mail.com">
+        <label>Mesajınız</label>
+        <textarea rows="5" required placeholder="Talep ettiğiniz ürün / adet / açıklama"></textarea>
+        <button class="btn" type="submit">Gönder</button>
+        <a class="btn btn-ghost-dark" href="https://wa.me/905318859025" target="_blank" rel="noopener">WhatsApp’tan Yaz</a>
+      </form>
+    </div>
   </main>
 
-  <footer>
-    <p>© <span id="y"></span> Harmansan Hırdavat</p>
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="y"></span> Harmansan Hırdavat · <a href="mailto:mesut@harmansan.com">mesut@harmansan.com</a> · <a href="tel:+905318859025">+90 531 885 90 25</a></p>
+    </div>
   </footer>
 
+  <a class="whatsapp-fab" href="https://wa.me/905318859025" target="_blank" rel="noopener">WhatsApp</a>
+
   <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // giriş animasyonu için body'ye .loaded ekleyelim (index ile tutarlı)
+    window.addEventListener('DOMContentLoaded', ()=>{ document.body.classList.add('loaded'); });
   </script>
 </body>
 </html>

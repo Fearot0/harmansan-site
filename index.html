@@ -4,13 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Harmansan Hırdavat</title>
-  <meta name="description" content="Harmansan Hırdavat: Pompalar, testereler, bahçe ve ölçüm aletleri. Stoktan hızlı teslimat, doğru fiyat.">
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Pompa, testere, makara, bahçe ve ölçüm aletlerinde geniş stok. Aynı gün sevkiyat, doğru fiyat.">
   <link rel="icon" href="images/favicon.png">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
 
-  <!-- ÜST BİLGİ ÇUBUĞU -->
+  <!-- Üst bilgi -->
   <div class="topline">
     <div class="container tl-inner">
       <span>📞 <a href="tel:+905318859025">+90 531 885 90 25</a></span>
@@ -18,7 +20,7 @@
     </div>
   </div>
 
-  <!-- TURUNCU MENÜ -->
+  <!-- Menü -->
   <header class="headerbar">
     <div class="container header-inner">
       <a class="logo" href="index.html">
@@ -40,28 +42,31 @@
         <a href="iletisim.html">İletişim</a>
       </nav>
       <div class="header-cta">
-        <a class="btn ghost" href="https://wa.me/905318859025" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn ghost" href="https://wa.me/905318859025" target="_blank" rel="noopener"><i class='bx bxl-whatsapp'></i> WhatsApp</a>
       </div>
     </div>
   </header>
 
-  <!-- TAM GENİŞLİK HERO BANNER -->
-  <!-- images/hero-wadfow.jpg dosyasını ekle (en az 1600x600). Yoksa alt satırdaki stok link geçici olarak kalabilir. -->
+  <!-- HERO (tam ekran – ken-burns + görsel slider) -->
   <section class="hero">
     <div class="hero-bg">
-      <img src="images/hero-wadfow.jpg" alt="Hırdavat ve el aletleri arka plan" onerror="this.src='https://images.unsplash.com/photo-1581091870622-7c61fc05ba2a?q=80&w=1600&auto=format&fit=crop'">
+      <img id="heroImg"
+           src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop"
+           alt="Endüstriyel aletler ve atölye arka planı">
     </div>
     <div class="container hero-inner">
-      <h1>Lityum platformu, el aletleri ve endüstriyel hırdavat</h1>
-      <p>Hortum makaraları, pompalar, testereler, bahçe ve ölçüm aletleri… stoktan hızlı teslimat, doğru fiyat.</p>
-      <div class="hero-actions">
+      <h1 class="reveal">Sanayiye <span class="accent">güç</span> veren ekipmanlar</h1>
+      <p class="reveal delay-1">Pompadan testereye, hortum makaralarından ölçüm cihazlarına kadar geniş stok. Aynı gün sevkiyat, doğru fiyat, güvenilir tedarik.</p>
+      <div class="hero-actions reveal delay-2">
         <a class="btn" href="urunler.html">Ürünleri Gör</a>
-        <a class="btn ghost" href="tel:+905318859025">Hemen Ara</a>
+        <a class="btn ghost" href="tel:+905318859025">Bize Ulaşın</a>
       </div>
+
+      <div class="hero-badge">Sadece toptan satış – Online sipariş yok</div>
     </div>
   </section>
 
-  <!-- KATEGORİ ŞERİDİ -->
+  <!-- Kategori butonları -->
   <section class="stripe">
     <div class="container stripe-inner">
       <a class="chip" href="urunler.html?k=pompalar">⛽ Pompalar</a>
@@ -73,48 +78,61 @@
     </div>
   </section>
 
-  <!-- ÖNE ÇIKANLAR (VİTRİN) -->
+  <!-- Özellikler şeridi -->
   <section class="section">
-    <div class="container">
-      <h2>Öne Çıkanlar</h2>
-      <p class="muted">Seçili ürünlerden bazıları</p>
-      <div class="grid" id="vitrin"></div>
+    <div class="container features">
+     
+      <div class="feature">
+        <div class="f-ico">✅</div>
+        <h3>Doğru Fiyat</h3>
+        <p>Şeffaf fiyatlandırma, uygun teklif.</p>
+      </div>
+      <div class="feature">
+        <div class="f-ico">🧰</div>
+        <h3>Geniş Ürün Gamı</h3>
+        <p>Pompalar, testereler, hortum & ölçüm.</p>
+      </div>
+      <div class="feature">
+        <div class="f-ico">🤝</div>
+        <h3>Güvenilir Tedarik</h3>
+        <p>Uzun vadeli çözüm ortaklığı.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ALT BİLGİ -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>© <span id="y"></span> Harmansan Hırdavat · <a href="mailto:mesut@harmansan.com">mesut@harmansan.com</a> · <a href="tel:+905318859025">+90 531 885 90 25</a></p>
+      <p>© <span id="y"></span> Harmansan Hırdavat ·
+        <a href="mailto:mesut@harmansan.com">mesut@harmansan.com</a> ·
+        <a href="tel:+905318859025">+90 531 885 90 25</a></p>
     </div>
   </footer>
 
-  <!-- Kayan WhatsApp -->
-  <a class="whatsapp-fab" href="https://wa.me/905318859025" target="_blank" rel="noopener">WhatsApp</a>
+  <!-- WhatsApp FAB -->
+  <a class="whatsapp-fab" href="https://wa.me/905318859025" target="_blank" rel="noopener"><i class='bx bxl-whatsapp'></i></a>
 
-  <!-- JS: yıl + vitrin doldurma -->
+  <!-- JS -->
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    const vitrin = [
-      {n:"Su Hortum Makara Seti (20m)", img:"images/urun-01.jpg", link:"urunler.html?k=makara"},
-      {n:"Plastik Boru Kaynak Makinesi (800W)", img:"images/urun-03.jpg", link:"urunler.html?k=makara"},
-      {n:"Çift Pistonlu Ayak Pompası", img:"images/urun-18.jpg", link:"urunler.html?k=pompalar"},
-      {n:"Lazer Terazi Yeşil", img:"images/urun-24.jpg", link:"urunler.html?k=olcum"},
-      {n:"Köpük Tabancası", img:"images/urun-31.jpg", link:"urunler.html"},
-      {n:"Inox Metal Kesme Diski", img:"images/urun-40.jpg", link:"urunler.html"}
+    // Hero slider (yüksek kaliteli stok görseller)
+    const heroPics = [
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1581091215367-59ab6d0a616a?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1581092787762-bd7a77c6ab72?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1618355776466-30c8c0f3d2f3?q=80&w=1600&auto=format&fit=crop"
     ];
-    const g = document.getElementById('vitrin');
-    vitrin.forEach(p=>{
-      const d = document.createElement('a');
-      d.className = 'card';
-      d.href = p.link;
-      d.innerHTML = `
-        <div class="card-media"><img loading="lazy" src="${p.img}" alt="${p.n}" onerror="this.src='images/placeholder.jpg'"></div>
-        <h3>${p.n}</h3>
-      `;
-      g.appendChild(d);
-    });
+    let hi = 0;
+    const heroImg = document.getElementById('heroImg');
+    setInterval(()=>{
+      hi = (hi+1) % heroPics.length;
+      heroImg.style.opacity = 0;
+      setTimeout(()=>{ heroImg.src = heroPics[hi]; heroImg.style.opacity = 1; }, 220);
+    }, 6000);
+
+    // Sayfa açılış animasyonu
+    window.addEventListener('DOMContentLoaded', ()=>{ document.body.classList.add('loaded'); });
   </script>
 </body>
 </html>
