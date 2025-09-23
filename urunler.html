@@ -43,118 +43,99 @@
       <p>© <span id="y"></span> Harmansan Hırdavat</p>
     </div>
   </footer>
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+  // === ÜRÜNLER (sadece 2 kategoriye indirildi) ===
+  // El Aletleri  |  Bahçe Aletleri
+  const E = "El Aletleri";
+  const B = "Bahçe Aletleri";
 
-    // Ürün verileri (isim/kategori senin verdiğin sırayla)
-    const PRODUCTS = [
-      {name:"Su Hortum Makara Seti (20m)",            category:"Makara & Hortum",   img:"images/urun-01.jpg"},
-      {name:"Hava Hortum Makara Seti",                category:"Makara & Hortum",   img:"images/urun-02.jpg"},
-      {name:"Plastik Boru Kaynak Makinesi (800W)",    category:"Kaynak & Boru",     img:"images/urun-03.jpg"},
-      {name:"Gönyeli Testere",                        category:"Testereler",         img:"images/urun-04.jpg"},
-      {name:"Fiber Saplı Balta",                      category:"Bahçe Aletleri",     img:"images/urun-05.jpg"},
-      {name:"Bits Ucu Seti",                          category:"El Aletleri",        img:"images/urun-06.jpg"},
-      {name:"Bits Ucu Seti (2)",                      category:"El Aletleri",        img:"images/urun-07.jpg"},
-      {name:"3 Fonksiyonlu Fıskiye Başlığı",          category:"Bahçe Aletleri",     img:"images/urun-08.jpg"},
-      {name:"7 Fonksiyonlu Fıskiye Başlığı",          category:"Bahçe Aletleri",     img:"images/urun-09.jpg"},
-      {name:"3 Parça Törpü Seti",                     category:"El Aletleri",        img:"images/urun-10.jpg"},
-      {name:"5 Parça Eğe Seti",                       category:"El Aletleri",        img:"images/urun-11.jpg"},
-      {name:"3 Parça Adaptör Seti",                   category:"Bağlantı & Adaptör", img:"images/urun-12.jpg"},
-      {name:"Sabit Geniş Ağızlı Dal Kesme Makası",    category:"Bahçe Aletleri",     img:"images/urun-13.jpg"},
-      {name:"Dal Kesme Makası",                       category:"Bahçe Aletleri",     img:"images/urun-14.jpg"},
-      {name:"Sabit Dal Kesme Makası",                 category:"Bahçe Aletleri",     img:"images/urun-15.jpg"},
-      {name:"3 Parça Makas Seti",                     category:"Bahçe Aletleri",     img:"images/urun-16.jpg"},
-      {name:"Teleskopik Makas",                       category:"Bahçe Aletleri",     img:"images/urun-17.jpg"},
-      {name:"Çift Pistonlu Ayak Pompası",             category:"Pompalar",           img:"images/urun-18.jpg"},
-      {name:"Göstergeli El Pompası",                  category:"Pompalar",           img:"images/urun-19.jpg"},
-      {name:"El Pompası 32 mm",                       category:"Pompalar",           img:"images/urun-20.jpg"},
-      {name:"El Pompası 29 mm",                       category:"Pompalar",           img:"images/urun-21.jpg"},
-      {name:"Mini El Pompası",                        category:"Pompalar",           img:"images/urun-22.jpg"},
-      {name:"PVC Boru Kesme",                         category:"Kesme Aletleri",     img:"images/urun-23.jpg"},
-      {name:"Lazer Terazi Yeşil",                     category:"Ölçüm Aletleri",     img:"images/urun-24.jpg"},
-      {name:"Lazer Terazi Kırmızı",                   category:"Ölçüm Aletleri",     img:"images/urun-25.jpg"},
-      {name:"Mazot Transfer Pompası",                 category:"Pompalar",           img:"images/urun-26.jpg"},
-      {name:"Katlanabilir Budama Testeresi",          category:"Testereler",         img:"images/urun-27.jpg"},
-      {name:"Dal Budama Testeresi",                   category:"Testereler",         img:"images/urun-28.jpg"},
-      {name:"Testere Kolu",                           category:"Testereler",         img:"images/urun-29.jpg"},
-      {name:"Gres Pompası",                           category:"Pompalar",           img:"images/urun-30.jpg"},
-      {name:"Köpük Tabancası",                        category:"Tabancalar",         img:"images/urun-31.jpg"},
-      {name:"Lazer Metre",                            category:"Ölçüm Aletleri",     img:"images/urun-32.jpg"},
-      {name:"Mini İşkence 50x250",                    category:"Sıkma & Mengene",    img:"images/urun-33.jpg"},
-      {name:"Mini İşkence 50x200",                    category:"Sıkma & Mengene",    img:"images/urun-34.jpg"},
-      {name:"Burgulu Tel Fırça 100 mm",               category:"Tel Fırçalar",       img:"images/urun-35.jpg"},
-      {name:"Burgulu Tel Fırça 75 mm",                category:"Tel Fırçalar",       img:"images/urun-36.jpg"},
-      {name:"Saçaklı Tel Fırça 100 mm",               category:"Tel Fırçalar",       img:"images/urun-37.jpg"},
-      {name:"Saçaklı Tel Fırça 75 mm",                category:"Tel Fırçalar",       img:"images/urun-38.jpg"},
-      {name:"Matkap Tezgahı",                         category:"Tezgah & Aksesuar",  img:"images/urun-39.jpg"},
-      {name:"Inox Metal Kesme Diski",                 category:"Kesme Diskleri",     img:"images/urun-40.jpg"}
-    ];
+  const PRODUCTS = [
+    {name:"Su Hortum Makara Seti (20m)",            category:B, img:"images/urun-01.jpg"},
+    {name:"Hava Hortum Makara Seti",                category:E, img:"images/urun-02.jpg"},
+    {name:"Plastik Boru Kaynak Makinesi (800W)",    category:E, img:"images/urun-03.jpg"},
+    {name:"Gönyeli Testere",                        category:E, img:"images/urun-04.jpg"},
+    {name:"Fiber Saplı Balta",                      category:B, img:"images/urun-05.jpg"},
+    {name:"Bits Ucu Seti",                          category:E, img:"images/urun-06.jpg"},
+    {name:"Bits Ucu Seti (2)",                      category:E, img:"images/urun-07.jpg"},
+    {name:"3 Fonksiyonlu Fıskiye Başlığı",          category:B, img:"images/urun-08.jpg"},
+    {name:"7 Fonksiyonlu Fıskiye Başlığı",          category:B, img:"images/urun-09.jpg"},
+    {name:"3 Parça Törpü Seti",                     category:E, img:"images/urun-10.jpg"},
+    {name:"5 Parça Eğe Seti",                       category:E, img:"images/urun-11.jpg"},
+    {name:"3 Parça Adaptör Seti",                   category:E, img:"images/urun-12.jpg"},
+    {name:"Sabit Geniş Ağızlı Dal Kesme Makası",    category:B, img:"images/urun-13.jpg"},
+    {name:"Dal Kesme Makası",                       category:B, img:"images/urun-14.jpg"},
+    {name:"Sabit Dal Kesme Makası",                 category:B, img:"images/urun-15.jpg"},
+    {name:"3 Parça Makas Seti",                     category:B, img:"images/urun-16.jpg"},
+    {name:"Teleskopik Makas",                       category:B, img:"images/urun-17.jpg"},
+    {name:"Çift Pistonlu Ayak Pompası",             category:E, img:"images/urun-18.jpg"},
+    {name:"Göstergeli El Pompası",                  category:E, img:"images/urun-19.jpg"},
+    {name:"El Pompası 32 mm",                       category:E, img:"images/urun-20.jpg"},
+    {name:"El Pompası 29 mm",                       category:E, img:"images/urun-21.jpg"},
+    {name:"Mini El Pompası",                        category:E, img:"images/urun-22.jpg"},
+    {name:"PVC Boru Kesme",                         category:E, img:"images/urun-23.jpg"},
+    {name:"Lazer Terazi Yeşil",                     category:E, img:"images/urun-24.jpg"},
+    {name:"Lazer Terazi Kırmızı",                   category:E, img:"images/urun-25.jpg"},
+    {name:"Mazot Transfer Pompası",                 category:E, img:"images/urun-26.jpg"},
+    {name:"Katlanabilir Budama Testeresi",          category:B, img:"images/urun-27.jpg"},
+    {name:"Dal Budama Testeresi",                   category:B, img:"images/urun-28.jpg"},
+    {name:"Testere Kolu",                           category:B, img:"images/urun-29.jpg"},
+    {name:"Gres Pompası",                           category:E, img:"images/urun-30.jpg"},
+    {name:"Köpük Tabancası",                        category:E, img:"images/urun-31.jpg"},
+    {name:"Lazer Metre",                            category:E, img:"images/urun-32.jpg"},
+    {name:"Mini İşkence 50x250",                    category:E, img:"images/urun-33.jpg"},
+    {name:"Mini İşkence 50x200",                    category:E, img:"images/urun-34.jpg"},
+    {name:"Burgulu Tel Fırça 100 mm",               category:E, img:"images/urun-35.jpg"},
+    {name:"Burgulu Tel Fırça 75 mm",                category:E, img:"images/urun-36.jpg"},
+    {name:"Saçaklı Tel Fırça 100 mm",               category:E, img:"images/urun-37.jpg"},
+    {name:"Saçaklı Tel Fırça 75 mm",                category:E, img:"images/urun-38.jpg"},
+    {name:"Matkap Tezgahı",                         category:E, img:"images/urun-39.jpg"},
+    {name:"Inox Metal Kesme Diski",                 category:E, img:"images/urun-40.jpg"}
+  ];
 
-    // Kategoriler + başlangıç kategorisi
-    const CATS = ["Hepsi", ...Array.from(new Set(PRODUCTS.map(p=>p.category)))];
-    let activeCat = "Hepsi";
+  // Sadece 2 kategori (Hepsi + El Aletleri + Bahçe Aletleri)
+  const CATS = ["Hepsi", "El Aletleri", "Bahçe Aletleri"];
+  let activeCat = "Hepsi";
 
-    // URL'den ?k= okumayı robust yap (Türkçe harfleri normalize)
-    const norm = s => (s||"").toLowerCase()
-      .replace(/ğ/g,"g").replace(/ş/g,"s").replace(/ı/g,"i").replace(/ç/g,"c").replace(/ö/g,"o").replace(/ü/g,"u")
-      .replace(/[^a-z0-9]+/g,"");
-    const urlCat = norm(new URLSearchParams(location.search).get("k"));
-    const catSlug = {
-      pompalar:"Pompalar",
-      testereler:"Testereler",
-      bahce:"Bahçe Aletleri",
-      olcum:"Ölçüm Aletleri",
-      makara:"Makara & Hortum",
-      hortum:"Makara & Hortum",
-      adaptor:"Bağlantı & Adaptör",
-      disk:"Kesme Diskleri",
-      telfirca:"Tel Fırçalar",
-      mengene:"Sıkma & Mengene",
-      tezgah:"Tezgah & Aksesuar"
-    };
-    if(catSlug[urlCat]) activeCat = catSlug[urlCat];
+  // URL param desteği (?k=el | ?k=bahce)
+  const norm = s => (s||"").toLowerCase().replace(/[^a-z0-9]+/g,"");
+  const urlCat = norm(new URLSearchParams(location.search).get("k"));
+  const catSlug = { el:"El Aletleri", bahce:"Bahçe Aletleri" };
+  if (catSlug[urlCat]) activeCat = catSlug[urlCat];
 
-    // Filtre butonlarını oluştur
-    const filtersEl = document.getElementById("filters");
-    CATS.forEach(cat=>{
-      const b = document.createElement("button");
-      b.className = "filter-btn";
-      b.dataset.cat = cat;
-      b.textContent = cat;
-      b.onclick = () => { activeCat = cat; setActive(); render(); };
-      filtersEl.appendChild(b);
-    });
+  // Filtre butonları
+  const filtersEl = document.getElementById("filters");
+  CATS.forEach(cat=>{
+    const b = document.createElement("button");
+    b.className = "filter-btn";
+    b.dataset.cat = cat;
+    b.textContent = cat;
+    b.onclick = () => { activeCat = cat; setActive(); render(); };
+    filtersEl.appendChild(b);
+  });
+  function setActive(){ document.querySelectorAll(".filter-btn").forEach(btn=>btn.classList.toggle("active", btn.dataset.cat===activeCat)); }
 
-    function setActive(){
-      document.querySelectorAll(".filter-btn").forEach(btn=>{
-        btn.classList.toggle("active", btn.dataset.cat === activeCat);
+  // Render
+  const grid = document.getElementById("grid");
+  function render(){
+    const q = (document.getElementById("q")?.value || "").toLowerCase().trim();
+    grid.innerHTML = "";
+    PRODUCTS
+      .filter(p => activeCat==="Hepsi" ? true : p.category === activeCat)
+      .filter(p => q ? (p.name.toLowerCase().includes(q)) : true)
+      .forEach(p=>{
+        const card = document.createElement("div");
+        card.className = "product";
+        card.innerHTML = `
+          <img loading="lazy" src="${p.img}" alt="${p.name}" onerror="this.src='images/placeholder.jpg'">
+          <h3>${p.name}</h3>
+        `;
+        grid.appendChild(card);
       });
-    }
+  }
+  setActive(); render();
+</script>
 
-    const grid = document.getElementById("grid");
-
-    function render(){
-      const q = document.getElementById("q").value.toLowerCase().trim();
-      grid.innerHTML = "";
-      PRODUCTS
-        .filter(p => activeCat==="Hepsi" ? true : p.category === activeCat)
-        .filter(p => q ? (p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)) : true)
-        .forEach(p=>{
-          const card = document.createElement("div");
-          card.className = "product";
-          card.innerHTML = `
-           
-            <img loading="lazy" src="${p.img}" alt="${p.name}" onerror="this.src='images/placeholder.jpg'">
-            <h3>${p.name}</h3>
-          `;
-          grid.appendChild(card);
-        });
-    }
-
-    // İlk yükleme
-    setActive();
-    render();
-  </script>
 </body>
 </html>
