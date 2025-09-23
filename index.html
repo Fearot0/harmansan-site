@@ -4,15 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Harmansan Hırdavat</title>
-  <meta name="description" content="Pompa, testere, makara, bahçe ve ölçüm aletlerinde geniş stok. Aynı gün sevkiyat, doğru fiyat.">
+  <meta name="description" content="Pompa, testere, hortum makarası ve ölçüm cihazlarında geniş stok. Doğru fiyat, güvenilir tedarik.">
   <link rel="icon" href="images/favicon.png">
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Üst bilgi -->
+  <!-- AÇILIŞ (splash) -->
+  <div id="intro" class="intro">
+    <div class="intro-badge">H</div>
+  </div>
+
+  <!-- ÜST BİLGİ -->
   <div class="topline">
     <div class="container tl-inner">
       <span>📞 <a href="tel:+905318859025">+90 531 885 90 25</a></span>
@@ -20,7 +24,7 @@
     </div>
   </div>
 
-  <!-- Menü -->
+  <!-- MENÜ -->
   <header class="headerbar">
     <div class="container header-inner">
       <a class="logo" href="index.html">
@@ -29,59 +33,53 @@
       </a>
       <nav class="mainnav">
         <a class="active" href="index.html">Ana Sayfa</a>
-       <div class="dropdown">
-  <button class="dropbtn">Ürünler ▾</button>
-  <div class="dropdown-menu">
-    <a href="urunler.html?k=el">El Aletleri</a>
-    <a href="urunler.html?k=bahce">Bahçe Aletleri</a>
-    <a href="urunler.html">Tüm Ürünler</a>
-  </div>
-</div>
+
+        <div class="dropdown">
+          <button class="dropbtn">Ürünler ▾</button>
+          <div class="dropdown-menu">
+            <a href="urunler.html?k=el">El Aletleri</a>
+            <a href="urunler.html?k=bahce">Bahçe Aletleri</a>
+            <a href="urunler.html">Tüm Ürünler</a>
+          </div>
+        </div>
 
         <a href="iletisim.html">İletişim</a>
       </nav>
+
       <div class="header-cta">
-        <a class="btn ghost" href="https://wa.me/905318859025" target="_blank" rel="noopener"><i class='bx bxl-whatsapp'></i> WhatsApp</a>
+        <a class="btn ghost" href="https://wa.me/905318859025" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
   </header>
 
-  <!-- HERO (tam ekran – ken-burns + görsel slider) -->
-  <section class="hero">
-    <div class="hero-bg">
-      <img id="heroImg"
-           src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop"
-           alt="Endüstriyel aletler ve atölye arka planı">
-           <img id="heroImgB" class="hero-img"
-         src="https://images.unsplash.com/photo-1581092787762-bd7a77c6ab72?q=80&w=1600&auto=format&fit=crop"
-         alt="">
+  <!-- HERO (sadece fotoğraflar, soluk mavi yok) -->
+ <!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img id="heroA" class="hero-img show" alt="Hero görseli 1">
+    <img id="heroB" class="hero-img" alt="Hero görseli 2">
+  </div>
+  <div class="container hero-inner">
+    <h1>Sanayiye <span class="accent">güç</span> veren ekipmanlar</h1>
+    <p>Pompadan testereye, hortum makaralarına...</p>
+    <div class="hero-actions">
+      <a class="btn" href="urunler.html">Ürünleri Gör</a>
+      <a class="btn ghost" href="tel:+905318859025">Bize Ulaşın</a>
     </div>
-    <div class="container hero-inner">
-      <h1 class="reveal">Sanayiye <span class="accent">güç</span> veren ekipmanlar</h1>
-      <p class="reveal delay-1">Pompadan testereye, hortum makaralarından ölçüm cihazlarına kadar geniş stok. Aynı gün sevkiyat, doğru fiyat, güvenilir tedarik.</p>
-      <div class="hero-actions reveal delay-2">
-        <a class="btn" href="urunler.html">Ürünleri Gör</a>
-        <a class="btn ghost" href="tel:+905318859025">Bize Ulaşın</a>
-      </div>
-
-      <div class="hero-badge">Sadece toptan satış – Online sipariş yok</div>
+  </div>
+</section>
+  <!-- KATEGORİ BUTONLARI -->
+  <section class="stripe">
+    <div class="container stripe-inner">
+      <a class="chip" href="urunler.html?k=el">🛠️ El Aletleri</a>
+      <a class="chip" href="urunler.html?k=bahce">🌿 Bahçe Aletleri</a>
+      <a class="chip" href="urunler.html">Hepsi</a>
     </div>
   </section>
 
-  <!-- Kategori butonları -->
-<section class="stripe">
-  <div class="container stripe-inner">
-    <a class="chip" href="urunler.html?k=el">🛠️ El Aletleri</a>
-    <a class="chip" href="urunler.html?k=bahce">🌿 Bahçe Aletleri</a>
-    <a class="chip" href="urunler.html">Hepsi</a>
-  </div>
-</section>
-
-
-  <!-- Özellikler şeridi -->
+  <!-- ÖZELLİKLER -->
   <section class="section">
     <div class="container features">
-     
       <div class="feature">
         <div class="f-ico">✅</div>
         <h3>Doğru Fiyat</h3>
@@ -100,7 +98,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ALT -->
   <footer class="footer">
     <div class="container">
       <p>© <span id="y"></span> Harmansan Hırdavat ·
@@ -109,30 +107,68 @@
     </div>
   </footer>
 
-  <!-- WhatsApp FAB -->
-  <a class="whatsapp-fab" href="https://wa.me/905318859025" target="_blank" rel="noopener"><i class='bx bxl-whatsapp'></i></a>
+  <a class="whatsapp-fab" href="https://wa.me/905318859025" target="_blank" rel="noopener">WhatsApp</a>
+<script>
+  // footer yılda otomatik güncelleme
+  document.getElementById('y').textContent = new Date().getFullYear();
 
-  <!-- JS -->
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+  // 4–6 görsel ne kadar istersen ekleyebilirsin
+  const HERO_PICS = [
+    "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1581091215367-59ab6d0a616a?q=80&w=1600&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1581092787762-bd7a77c6ab72?q=80&w=1600&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1618355776466-30c8c0f3d2f3?q=80&w=1600&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1581093588401-16ec3c5a4a97?q=80&w=1600&auto=format&fit=crop"
+  ];
 
-    // Hero slider (yüksek kaliteli stok görseller)
-    const heroPics = [
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1581091215367-59ab6d0a616a?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1581092787762-bd7a77c6ab72?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1618355776466-30c8c0f3d2f3?q=80&w=1600&auto=format&fit=crop"
-    ];
-    let hi = 0;
-    const heroImg = document.getElementById('heroImg');
-    setInterval(()=>{
-      hi = (hi+1) % heroPics.length;
-      heroImg.style.opacity = 0;
-      setTimeout(()=>{ heroImg.src = heroPics[hi]; heroImg.style.opacity = 1; }, 220);
-    }, 6000);
+  const imgA = document.getElementById('heroA');
+  const imgB = document.getElementById('heroB');
 
-    // Sayfa açılış animasyonu
-    window.addEventListener('DOMContentLoaded', ()=>{ document.body.classList.add('loaded'); });
-  </script>
+  // İlk iki görseli ata
+  let index = 0;
+  imgA.src = HERO_PICS[0];
+  imgB.src = HERO_PICS[1];
+
+  // Şu anda görünen eleman (başlangıç A)
+  let current = imgA;
+
+  // Görsel ön-yükleme (beyaz ekranı tamamen önler)
+  function preload(src){
+    return new Promise(resolve => {
+      const im = new Image();
+      im.onload = () => resolve(src);
+      im.src = src;
+    });
+  }
+
+  // Geçiş fonksiyonu
+  async function swap(){
+    index = (index + 1) % HERO_PICS.length;
+    const nextEl = (current === imgA) ? imgB : imgA;
+
+    // Sonraki görseli yükle, sonra göster
+    const nextUrl = await preload(HERO_PICS[index]);
+    nextEl.src = nextUrl;
+
+    // Reflow (animasyonu garantiye almak için)
+    void nextEl.offsetWidth;
+
+    nextEl.classList.add('show');
+    current.classList.remove('show');
+    current = nextEl;
+  }
+
+  window.addEventListener('load', () => {
+    // varsa splash'ı nazikçe kapat
+    document.getElementById('intro')?.classList.add('done');
+
+    // ilk frame görünür olsun
+    imgA.classList.add('show');
+
+    // 5 sn'de bir geçiş
+    setInterval(swap, 5000);
+  });
+</script>
+
 </body>
 </html>
