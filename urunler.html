@@ -43,14 +43,30 @@
       <p>© <span id="y"></span> Harmansan Hırdavat</p>
     </div>
   </footer>
+
+  <!-- ===== ÜRÜN DETAY MODALI ===== -->
+  <div id="productModal" class="modal" style="display:none">
+    <div class="modal__content">
+      <div class="modal__head">
+        <img id="mImg" class="modal__img" alt="">
+        <div>
+          <h3 id="mTitle" class="modal__title"></h3>
+          <div id="mCode" class="modal__code"></div>
+        </div>
+        <button class="modal__close" onclick="closeModal()">✕</button>
+      </div>
+      <ul id="mSpecs" class="modal__specs"></ul>
+    </div>
+  </div>
+
 <script>
   document.getElementById("y").textContent = new Date().getFullYear();
 
-  // === ÜRÜNLER (sadece 2 kategoriye indirildi) ===
-  // El Aletleri  |  Bahçe Aletleri
+  // === KATEGORİ SABİTLERİ ===
   const E = "El Aletleri";
   const B = "Bahçe Aletleri";
 
+  // === ÜRÜN LİSTESİ (görsellerin mevcut images/urun-XX.jpg isimleriyle) ===
   const PRODUCTS = [
     {name:"Su Hortum Makara Seti (20m)",            category:B, img:"images/urun-01.jpg"},
     {name:"Hava Hortum Makara Seti",                category:E, img:"images/urun-02.jpg"},
@@ -94,11 +110,369 @@
     {name:"Inox Metal Kesme Diski",                 category:E, img:"images/urun-40.jpg"}
   ];
 
-  // Sadece 2 kategori (Hepsi + El Aletleri + Bahçe Aletleri)
+  // === DETAYLAR (GÖNDERDİKLERİN ÜZERİNDEN DOLDURULDU) ===
+  // Eksik olanlar için kalıp hazır; sadece code/specs eklemen yeterli.
+  const DETAILS = {
+    "Su Hortum Makara Seti (20m)": {
+      code: "WVZ1520",
+      specs: [
+        "Hortum uzunluğu: 20+2 m",
+        "Hortum çapı: 1/2\"",
+        "Çalışma basıncı: 150 psi",
+        "Yavaş geri sarma ve otomatik kilit",
+        "Malzeme: PVC hortum, PP gövde",
+        "Kutu içeriği: Duvar bağlantı seti",
+      ]
+    },
+    "Hava Hortum Makara Seti": {
+      code: "WAZ3515",
+      specs: [
+        "Hortum uzunluğu: 14+1 m",
+        "Hortum çapı: 1/4\" BSPT",
+        "Çalışma basıncı: 250 psi",
+        "Otomatik kilit ve durdurma",
+        "Malzeme: PVC hortum, PP gövde",
+        "Kutu içeriği: Montaj seti"
+      ]
+    },
+    "Plastik Boru Kaynak Makinesi (800W)": {
+      code: "WWM1L15",
+      specs: [
+        "Voltaj: 220–240V ~ 50/60Hz",
+        "Güç: 800W",
+        "Çalışma sıcaklığı: 0–300°C",
+        "Uygulama: PP-R, PB, PE, PE-RT borular",
+        "Kaynak çapları: 20 / 25 / 32 mm",
+        "Aksesuar: Pense, anahtar, taşıma çantası"
+      ]
+    },
+    "Gönyeli Testere": {
+      code: "WHW2112 (300mm)",
+      specs: [
+        "Gönyeli kesim kutusu + sırt testere",
+        "Uzunluk: 300 mm (12”)",
+        "65Mn çelik, 11 TPI",
+        "Kod: WHW2112"
+      ]
+    },
+    "Fiber Saplı Balta": {
+      code: "WMH3600/3620/3512",
+      specs: [
+        "Kafa ağırlığı: 600g / 800g / 1250g",
+        "Kafa: Döküm 45# karbon çelik",
+        "Sap: Ergonomik fiberglass",
+        "Darbe emici tasarım"
+      ]
+    },
+    "Bits Ucu Seti": {
+      code: "WSV2X61 (PH2x50mm, 2'li)",
+      specs: [
+        "S2 çelik, manyetik siyah yüzey",
+        "Yüksek görünürlük kılıf",
+        "Shock Zone tasarım, kırılma azaltır",
+        "Blister ambalaj"
+      ]
+    },
+    "Bits Ucu Seti (2)": {
+      code: "WSV4K64 (PH2x150mm, 2'li)",
+      specs: [
+        "S2 endüstriyel çelik",
+        "150 mm uzunluk, manyetik uç",
+        "Yüksek görünürlük kılıf",
+        "Blister kart"
+      ]
+    },
+    "3 Fonksiyonlu Fıskiye Başlığı": {
+      code: "WSN6E03",
+      specs: [
+        "Desenler: Cone / Rinse / Jet (3 fonksiyon)",
+        "Gövde: ABS; Kol: Nylon",
+        "Kavrama: TPR yumuşak sap",
+        "3/4” hortum adaptörü dahildir"
+      ]
+    },
+    "7 Fonksiyonlu Fıskiye Başlığı": {
+      code: "WSN1E07",
+      specs: [
+        "7 Sprey Pattern; TPR yumuşak sap",
+        "Nylon tetik kolu",
+        "Tüm standart bahçe hortumlarıyla uyumlu",
+        "Blister / askı ambalaj"
+      ]
+    },
+    "3 Parça Törpü Seti": {
+      code: "WFS403 (3PCS/200mm)",
+      specs: [
+        "Düz, yarım ay, yuvarlak – 3 parça",
+        "Uzunluk: 200 mm (8”)",
+        "Malzeme: Karbon çelik",
+        "Çift blister ambalaj"
+      ]
+    },
+    "5 Parça Eğe Seti": {
+      code: "WFS205 (5PCS/200mm)",
+      specs: [
+        "Düz, üçgen, yarım ay, yuvarlak, kare",
+        "Uzunluk: 200 mm (8”)",
+        "Malzeme: T12 çelik",
+        "Blister kart"
+      ]
+    },
+    "3 Parça Adaptör Seti": {
+      code: "WOC2E33",
+      specs: [
+        "2x hızlı hortum konnektörü + 1/2”-3/4” musluk adaptörü + su durdurmalı konnektör",
+        "Toplam: 3 parça",
+        "Hızlı sök-tak, su durdurma özelliği",
+        "Standart 1/2” hortumlarla uyumlu"
+      ]
+    },
+    "Sabit Geniş Ağızlı Dal Kesme Makası": {
+      code: "WPRI301 (27” / 690mm)",
+      specs: [
+        "SK5 çelik bıçak, ısı işlemli",
+        "Bıçak kaplama: Teflon",
+        "Uzun sap; güçlü kesim",
+        "Ambalaj: Kağıt askı"
+      ]
+    },
+    "Dal Kesme Makası": {
+      code: "WPR1E27 (Teleskopik 620–850mm)",
+      specs: [
+        "Kafa malzemesi: SK5",
+        "Uzunluk: 620–850mm (24–33”)",
+        "Ağırlık: ~1.8 kg",
+        "Power gear ile daha az güç"
+      ]
+    },
+    "Sabit Dal Kesme Makası": {
+      code: "WPR?? (Sabit tip)",
+      specs: [
+        "SK5 çelik bıçak",
+        "Isıl işlem; teflon kaplama",
+        "Ergonomik kavrama"
+      ]
+    },
+    "3 Parça Makas Seti": {
+      code: "WPR3E03 (3PCS)",
+      specs: [
+        "200mm budama makası",
+        "550mm çit makası",
+        "690mm lopper",
+        "Bıçaklar ısıl işlemli; askı ambalaj"
+      ]
+    },
+    "Teleskopik Makas": {
+      code: "WPR1E27",
+      specs: [
+        "Teleskopik 620–850mm",
+        "SK5 çelik; Power Gear",
+        "Maks. Ø40 mm kesim"
+      ]
+    },
+    "Çift Pistonlu Ayak Pompası": {
+      code: "WPP1C02 (160 PSI / 390mm)",
+      specs: [
+        "Maks. basınç: 160 PSI (11 bar)",
+        "Çelik gövde – Ø32mm çelik tüp",
+        "Aksesuar uçlar dâhil",
+        "Ağırlık ~950g"
+      ]
+    },
+    "Göstergeli El Pompası": {
+      code: "WPP1C01",
+      specs: [
+        "160 PSI göstergeli el pompası",
+        "30×370 mm",
+        "Çelik tüp, plastik taban",
+        "Aksesuar uçlar dâhil"
+      ]
+    },
+    "El Pompası 32 mm": {
+      code: "WPP0E01 (30 PSI)",
+      specs: [
+        "Basınç: 30 PSI",
+        "Ölçüler: Ø32 × 260 mm",
+        "Tüp: Alüminyum; Kol: Plastik",
+        "Askı ambalaj"
+      ]
+    },
+    "El Pompası 29 mm": {
+      code: "WPP0E? (benzer 29mm)",
+      specs: [
+        "Kompakt el pompası",
+        "Hava iğnesi ve uçlar dâhil",
+        "Dayanıklı hortum"
+      ]
+    },
+    "Mini El Pompası": {
+      code: "WPP0E Mini",
+      specs: [
+        "Kompakt tasarım",
+        "Top ve bisiklet için",
+        "Uç seti dâhil"
+      ]
+    },
+    "PVC Boru Kesme": {
+      code: "WPC54642",
+      specs: [
+        "Kesme aralığı: 3–42mm",
+        "Uzunluk: 203mm",
+        "Malzeme: Alüminyum gövde",
+        "Teflon kaplı bıçak"
+      ]
+    },
+    "Lazer Terazi Yeşil": {
+      code: "WLEM2M03 (yeşil hat)",
+      specs: [
+        "Çalışma mesafesi: 0–30 m",
+        "Hassasiyet: ±2mm @ 5m",
+        "Self-level: ≤4° (≤3sn)",
+        "Yatay+dikey, kilitleme fonksiyonu"
+      ]
+    },
+    "Lazer Terazi Kırmızı": {
+      code: "WLEM03 (kırmızı hat)",
+      specs: [
+        "Çalışma mesafesi: 0–15 m",
+        "Hassasiyet: ±2mm @ 5m",
+        "Self-level: ≤4°",
+        "Çapraz kilit fonksiyonu"
+      ]
+    },
+    "Mazot Transfer Pompası": {
+      code: "WHY2525",
+      specs: [
+        "El tipi yağ/mazot pompası",
+        "Boru uzunluğu: 1000 mm",
+        "Debi: 25 L/dk",
+        "Çinko kaplama, karbon çelik"
+      ]
+    },
+    "Katlanabilir Budama Testeresi": {
+      code: "WHW4607 (7\" / 180mm)",
+      specs: [
+        "65Mn çelik; 7 TPI",
+        "Katlanabilir gövde",
+        "Kamp ve budama için ideal"
+      ]
+    },
+    "Dal Budama Testeresi": {
+      code: "WHW5G12 (11\" / 270mm)",
+      specs: [
+        "Malzeme: 65Mn",
+        "7 TPI; Hızlı kesim",
+        "Üç kenar hassas diş bileme"
+      ]
+    },
+    "Testere Kolu": {
+      code: "WFS338 (12\")",
+      specs: [
+        "Ergonomik ABS tutamak",
+        "12” bıçak dâhil",
+        "Güçlü sabitleme civatası"
+      ]
+    },
+    "Gres Pompası": {
+      code: "WGG2540 (400cc / 14oz)",
+      specs: [
+        "Çalışma basıncı: 4500 psi",
+        "Patlama basıncı: 7000 psi",
+        "1.2mm çelik tüp + alüminyum gövde",
+        "12” yüksek basınç hortumu + metal uç"
+      ]
+    },
+    "Köpük Tabancası": {
+      code: "WFPQ1302",
+      specs: [
+        "Tabanca boyu: 300 mm",
+        "Gövde: Alüminyum",
+        "Kaplama: Teflon kaplı meme",
+        "Bakır ağız"
+      ]
+    },
+    "Lazer Metre": {
+      code: "WDL520 (0.05–100m)",
+      specs: [
+        "Doğruluk: ±2mm",
+        "Kızılötesi 635nm, <1mW, Class 2",
+        "Tek/Ardışık/Alan/Hacim/3 nokta fonksiyon",
+        "2×1.5V AA"
+      ]
+    },
+    "Mini İşkence 50x250": {
+      code: "WCP2153 (50×250mm)",
+      specs: [
+        "Nikel kaplı mil, plastik sap",
+        "Cetvelli gövde",
+        "Kağıt kart ambalaj"
+      ]
+    },
+    "Mini İşkence 50x200": {
+      code: "WCP2152 (50×150/200mm)",
+      specs: [
+        "S2 kalite malzeme",
+        "Güçlü sıkıştırma",
+        "Kağıt kart ambalaj"
+      ]
+    },
+    "Burgulu Tel Fırça 100 mm": {
+      code: "WCE1402 (100mm / M14x2)",
+      specs: [
+        "Tel: 0.3 mm – tel boyu 30 mm",
+        "Maks. 8500 rpm",
+        "Sıyırma, çapak alma, boya sökme"
+      ]
+    },
+    "Burgulu Tel Fırça 75 mm": {
+      code: "WCE1401 (75mm / M14x2)",
+      specs: [
+        "Tel: 0.3 mm – Ø75",
+        "Maks. 12.500 rpm",
+        "Çelik tel; yoğun kullanım"
+      ]
+    },
+    "Saçaklı Tel Fırça 100 mm": {
+      code: "WCE2402 (tel saçaklı)",
+      specs: [
+        "100 mm çap, M14x2",
+        "Yüksek hızda temizlik",
+        "Montaj somunlu"
+      ]
+    },
+    "Saçaklı Tel Fırça 75 mm": {
+      code: "WCE2401 (tel saçaklı)",
+      specs: [
+        "75 mm çap, M14x2",
+        "Yüzey hazırlama/boyasökme",
+        "Dayanıklı gövde"
+      ]
+    },
+    "Matkap Tezgahı": {
+      code: "WADS1509",
+      specs: [
+        "Alüminyum alaşımlı gövde",
+        "Bağlama çapı: 43mm",
+        "Tek seferde çalışma uzunluğu: 60mm",
+        "Stabil taban"
+      ]
+    },
+    "Inox Metal Kesme Diski": {
+      code: "WAC1345 (115×1.0×22.2mm)",
+      specs: [
+        "Düz merkez (flat centre)",
+        "Metal & inox için",
+        "Maks. hız: 13.300 rpm",
+        "Etiket ambalaj"
+      ]
+    }
+  };
+
+  // === KATEGORİLER ===
   const CATS = ["Hepsi", "El Aletleri", "Bahçe Aletleri"];
   let activeCat = "Hepsi";
 
-  // URL param desteği (?k=el | ?k=bahce)
+  // URL param desteği
   const norm = s => (s||"").toLowerCase().replace(/[^a-z0-9]+/g,"");
   const urlCat = norm(new URLSearchParams(location.search).get("k"));
   const catSlug = { el:"El Aletleri", bahce:"Bahçe Aletleri" };
@@ -116,26 +490,62 @@
   });
   function setActive(){ document.querySelectorAll(".filter-btn").forEach(btn=>btn.classList.toggle("active", btn.dataset.cat===activeCat)); }
 
-  // Render
+  // === Render + Detay ===
   const grid = document.getElementById("grid");
+
   function render(){
     const q = (document.getElementById("q")?.value || "").toLowerCase().trim();
     grid.innerHTML = "";
+
     PRODUCTS
       .filter(p => activeCat==="Hepsi" ? true : p.category === activeCat)
-      .filter(p => q ? (p.name.toLowerCase().includes(q)) : true)
-      .forEach(p=>{
+      .filter(p => q ? p.name.toLowerCase().includes(q) : true)
+      .forEach((p, idx) => {
         const card = document.createElement("div");
         card.className = "product";
+
+        const d = DETAILS[p.name];
+
         card.innerHTML = `
           <img loading="lazy" src="${p.img}" alt="${p.name}" onerror="this.src='images/placeholder.jpg'">
           <h3>${p.name}</h3>
+          ${d ? `<div class="pcode">Kod: ${d.code}</div>` : ``}
+          <div style="margin-top:10px">
+            <button class="btn small" onclick="openModal('${escapeHtml(p.name)}','${p.img}')">Detay</button>
+          </div>
         `;
+
         grid.appendChild(card);
       });
   }
+
+  function $(id){ return document.getElementById(id); }
+  function openModal(name, img){
+    const d = DETAILS[name] || { code:"", specs:["Bu ürün için detaylar daha sonra eklenecektir."] };
+    $("mImg").src = img;
+    $("mImg").alt = name;
+    $("mTitle").textContent = name;
+    $("mCode").textContent = d.code ? ("Kod: " + d.code) : "";
+    const ul = $("mSpecs"); ul.innerHTML = "";
+    (d.specs||[]).forEach(t=>{
+      const li = document.createElement("li");
+      li.textContent = t;
+      ul.appendChild(li);
+    });
+    $("productModal").classList.add("show");
+    $("productModal").style.display = "flex";
+  }
+  function closeModal(){
+    $("productModal").classList.remove("show");
+    $("productModal").style.display = "none";
+  }
+  window.addEventListener("keydown", e => { if(e.key==="Escape") closeModal(); });
+
+  function escapeHtml(s){
+    return s.replace(/['"<>&]/g, c=>({ "'":"&#39;", '"':"&quot;", "<":"&lt;", ">":"&gt;", "&":"&amp;" }[c]));
+  }
+
   setActive(); render();
 </script>
-
 </body>
 </html>
